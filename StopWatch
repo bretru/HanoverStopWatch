@@ -1,0 +1,151 @@
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+
+public class StopWatch extends JPanel
+{
+	JPanel L1 = new JPanel(new BorderLayout());
+	
+	JLabel top = new JLabel("Hanover Stopwatch", JLabel.CENTER);
+	JLabel Lap1 = new JLabel("Lap 1");
+	JLabel Lap2 = new JLabel("Lap 2");
+	JLabel Lap3 = new JLabel("Lap 3");
+	JLabel Lap4 = new JLabel("Lap 4");
+	JLabel DayOfW = new JLabel("Day of Week");
+	JLabel YearLabel = new JLabel("Year");
+	JLabel DayLabel = new JLabel("Day");
+	JLabel NameLabel = new JLabel("Your Name");
+	
+	JButton store = new JButton("Store");
+	JButton start = new JButton("Start/Stop");
+	JButton lap = new JButton("Lap");
+	JButton clear = new JButton("Clear");
+	
+	JSpinner year = new JSpinner();
+	JSpinner day = new JSpinner();
+	
+	JRadioButton m = new JRadioButton("M");
+	JRadioButton t = new JRadioButton("T");
+	JRadioButton w = new JRadioButton("W");
+	JRadioButton r = new JRadioButton("R");
+	JRadioButton f = new JRadioButton("F");
+	JRadioButton sa = new JRadioButton("Sa");
+	JRadioButton su = new JRadioButton("Su");
+	
+	JTextField name = new JTextField();
+	JTextField lap1 = new JTextField();
+	JTextField lap2 = new JTextField();
+	JTextField lap3 = new JTextField();
+	JTextField lap4 = new JTextField();
+	JTextField clock = new JTextField();
+	
+	JTextArea timer = new JTextArea();
+	
+	public StopWatch()
+	{
+		layoutComponents();
+		add(L1);
+		
+	}
+	
+	
+	public void layoutComponents()
+	{
+		L1.add(top, BorderLayout.PAGE_START);
+		L1.add(store, BorderLayout.PAGE_END);
+		
+		JPanel L2 = new JPanel(new GridLayout(2,1));
+		
+		L1.add(L2, BorderLayout.CENTER);
+		
+		JPanel L3 = new JPanel(new GridLayout(1,2));
+		L2.add(L3);
+		
+		JPanel L4 = new JPanel(new BorderLayout());
+		JPanel L5 = new JPanel(new GridLayout(4,2));
+		
+		L4.add(timer, BorderLayout.CENTER);
+		L4.add(clock, BorderLayout.PAGE_END);
+		
+		L5.add(Lap1);
+		L5.add(lap1);
+		
+		L5.add(Lap2);
+		L5.add(lap2);
+		
+		L5.add(Lap3);
+		L5.add(lap3);
+		
+		L5.add(Lap4);
+		L5.add(lap4);
+		
+		L3.add(L4);
+		L3.add(L5);
+		
+		JPanel L6 = new JPanel(new BorderLayout());
+		L2.add(L6);
+		
+		L6.add(start, BorderLayout.PAGE_START);
+		
+		JPanel L7 = new JPanel(new GridLayout(6,1));
+		L6.add(L7, BorderLayout.CENTER);
+		
+		JPanel L8 = new JPanel(new GridLayout(1,2));
+		JPanel L9 = new JPanel(new GridLayout(1,7));
+		
+		L8.add(lap);
+		L8.add(clear);
+		
+		L9.add(m);
+		L9.add(t);
+		L9.add(w);
+		L9.add(r);
+		L9.add(f);
+		L9.add(sa);
+		L9.add(su);
+		
+		JPanel L10 = new JPanel(new GridLayout(1,2));
+		
+		L10.add(YearLabel);
+		L10.add(year);
+		
+		L10.add(DayLabel);
+		L10.add(day);
+		
+		L7.add(L8);
+		L7.add(DayOfW);
+		L7.add(L9);
+		L7.add(L10);
+		L7.add(NameLabel);
+		L7.add(name);
+		
+		
+	}
+	
+	
+
+	public static void main(String[] args)
+	{
+		JFrame frame = new JFrame("StopWatch");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JPanel panel = new StopWatch();
+		frame.getContentPane().add(panel);
+		
+		frame.pack();
+		frame.setVisible(true);
+		// TODO Auto-generated method stub
+		
+
+	}
+
+}
